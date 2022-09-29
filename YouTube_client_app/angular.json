@@ -1,19 +1,13 @@
 {
   "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
-  "cli": {
-    "analytics": false
-  },
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "mdb-angular-ui-kit-free": {
+    "YouTube_client_app": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:component": {
           "style": "scss"
-        },
-        "@schematics/angular:application": {
-          "strict": true
         }
       },
       "root": "",
@@ -23,7 +17,7 @@
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/mdb-angular-ui-kit-free",
+            "outputPath": "dist/you-tube-client-app",
             "index": "src/index.html",
             "main": "src/main.ts",
             "polyfills": "src/polyfills.ts",
@@ -34,6 +28,8 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              
               "src/styles.scss"
             ],
             "scripts": []
@@ -75,10 +71,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "mdb-angular-ui-kit-free:build:production"
+              "browserTarget": "YouTube_client_app:build:production"
             },
             "development": {
-              "browserTarget": "mdb-angular-ui-kit-free:build:development"
+              "browserTarget": "YouTube_client_app:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -86,7 +82,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "mdb-angular-ui-kit-free:build"
+            "browserTarget": "YouTube_client_app:build"
           }
         },
         "test": {
@@ -102,6 +98,7 @@
               "src/assets"
             ],
             "styles": [
+              "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
               "src/styles.scss"
             ],
             "scripts": []
@@ -110,5 +107,7 @@
       }
     }
   },
-  "defaultProject": "mdb-angular-ui-kit-free"
+  "cli": {
+    "analytics": false
+  }
 }
