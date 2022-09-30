@@ -21,12 +21,18 @@ import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { New2Component } from './new2/new2.component';
+import { HeaderComponent } from './header/header.component';
+import { FilterPanelComponent } from './filter-panel/filter-panel.component';
+import { MainComponent } from './main/main.component';
+import { CardComponent } from './main/card/card.component';
 
 @NgModule({
   declarations: [
     AppComponent,
-    New2Component
+    HeaderComponent,
+    FilterPanelComponent,
+    MainComponent,
+    CardComponent
   ],
   imports: [
     BrowserModule,
