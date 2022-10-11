@@ -25,6 +25,9 @@ import { HeaderComponent } from './header/header.component';
 import { FilterPanelComponent } from './filter-panel/filter-panel.component';
 import { MainComponent } from './main/main.component';
 import { CardComponent } from './main/card/card.component';
+import { FormsModule } from '@angular/forms';
+import { HighlightDirective } from './directive/highlight.directive';
+
 
 @NgModule({
   declarations: [
@@ -32,10 +35,12 @@ import { CardComponent } from './main/card/card.component';
     HeaderComponent,
     FilterPanelComponent,
     MainComponent,
-    CardComponent
+    CardComponent,
+    HighlightDirective,
   ],
   imports: [
     BrowserModule,
+    FormsModule,
     BrowserAnimationsModule,
     MdbAccordionModule,
     MdbCarouselModule,

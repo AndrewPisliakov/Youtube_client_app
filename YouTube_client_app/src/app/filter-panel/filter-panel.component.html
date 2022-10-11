@@ -3,7 +3,7 @@
         <span>Sorting by:</span>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active border-bottom" aria-current="page" href="#">date</a>
+                <a (click)="clickDate()" class="nav-link active border-bottom" aria-current="page" href="#">date</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="#">count of views</a>
@@ -13,7 +13,8 @@
             </li>
         </ul>
         <div class="form-outline">
-            <input type="text" id="typeText" class="form-control bg-white" />
+            <input type="text" id="typeText" class="form-control bg-white"  />
         </div>
     </div>
 </div>
+

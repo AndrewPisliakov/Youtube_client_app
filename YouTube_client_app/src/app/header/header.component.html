@@ -3,16 +3,24 @@
         <button type="button" class="btn btn-primary d-block">
             <i class="fab fa-youtube"></i>
         </button>
-
-        <div class="input-group">
+        <form 
+        #myForm="ngForm"
+        (ngSubmit)="onSubmit(myForm)"
+        class="input-group">
             <div class="form-outline">
-                <input type="search" id="form1" class="form-control border border-primary" />
-                <label class="form-label" for="form1">Search</label>
+                <input 
+                [(ngModel)]="textInput" 
+                type="search" 
+                name="inputHeader" 
+                id="form1" 
+                class="form-control border border-primary"/>
+                <label class="form-label" for="form1"></label>
             </div>
-            <button type="button" class="btn btn-primary">
+            <button type="submit" class="btn btn-primary">
                 <i class="fas fa-search"></i>
             </button>
-        </div>
+
+        </form>
 
         <button type="button" class="btn btn-primary d-block">
             <i class="fas fa-stream"></i>
@@ -25,4 +33,3 @@
         </div>
     </div>
 </div>
-

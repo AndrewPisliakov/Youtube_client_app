@@ -1,2 +1,14 @@
-<app-header></app-header>
-<app-filter-panel></app-filter-panel>
+<app-header (onChanged)="eventFormInput($event)"></app-header>
+<app-filter-panel *ngIf="showSorting" (clickFromDate)="clickSortDate()">
+   
+</app-filter-panel>
+
+<app-main>   
+    <app-card class="col" *ngFor="let item of cards" [card]="item"></app-card>
+</app-main>
+
+<h1 appHighlight>hello from app Component</h1>
+<h2 appHighlight>Hello from h2</h2>
+
+<br>
+<br>

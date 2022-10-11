@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +8,16 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  constructor() { }
+  textInput = '';
+
+  @Output() onChanged = new EventEmitter();
+
+  onSubmit(form) {
+    this.onChanged.emit(form);
+    this.onChanged.emit(this.textInput);
+  }
+
+
 
   ngOnInit(): void {
   }
