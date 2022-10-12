@@ -1,12 +1,16 @@
-import { Directive, ElementRef, Renderer2 } from '@angular/core';
+import { Directive, ElementRef, HostListener, Renderer2, Input } from '@angular/core';
 
 @Directive({
-  selector: '[appHighlight]'
+  selector: '[myEvent]'
 })
-export class HighlightDirective {
+export class myEventDirective {
 
-  constructor(elementRef: ElementRef, renderer: Renderer2) {
-    renderer.setStyle(elementRef.nativeElement, "fontWeight", "900");
+  constructor(private elementRef: ElementRef, private renderer: Renderer2) {
   }
+
+  @Input("myEvent") set changeColor(color: string) {
+    this.renderer.setStyle(this.elementRef.nativeElement, "color", color);
+  }
+
 
 }

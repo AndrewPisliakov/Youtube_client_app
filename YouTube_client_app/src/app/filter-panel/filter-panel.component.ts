@@ -9,15 +9,6 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 export class FilterPanelComponent implements OnInit {
 
-  @Output() clickFromDate = new EventEmitter();
-
-
-  clickDate() {
-    this.clickFromDate.emit();
-  }
-
-
-
   ngOnInit(): void {
   }
 

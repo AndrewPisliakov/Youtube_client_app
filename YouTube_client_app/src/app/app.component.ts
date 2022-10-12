@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
 
 import { data, SortOptions } from './models/models.component';
 import { IItem } from './models/models.component';
@@ -10,29 +10,36 @@ import { IItem } from './models/models.component';
   styleUrls: ['./app.component.scss']
 })
 
-export class AppComponent {
+export class AppComponent implements OnInit {
   cards: IItem[] = [];
-  showSorting = false;
+  showSorting: boolean = true;
   searchPanelInput: string = '';
+  
   sortBy: SortOptions = SortOptions.Date;
 
-  clickSortDate() {
-    this.cards.sort( (a: any, b: any) => {
-      const start = Date.parse(a.snippet.publishedAt);
-      const finish = Date.parse(b.snippet.publishedAt);
-      return start - finish;
-    });
+
+  ngOnInit(): void {
+  }
+
+  clickSortDate(event: boolean) {
+    if (this.cards.length > 0) {
+      this.cards.sort((a: any, b: any) => {
+        const start = Date.parse(a.snippet.publishedAt);
+        const finish = Date.parse(b.snippet.publishedAt);
+        return start - finish;
+      });
+    }
+  
+    this.showSorting = !this.showSorting;
+    console.log(event);
+
     this.sortBy = SortOptions.Date;
   }
 
   eventFormInput(texInputfromHeader) {
-    if (texInputfromHeader) { this.showSorting = true };
     this.searchPanelInput = texInputfromHeader;
     this.cards = data.items;
-    this.clickSortDate();
   }
-
-
 }
 
 

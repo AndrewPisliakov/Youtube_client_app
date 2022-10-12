@@ -11,13 +11,16 @@ export class HeaderComponent implements OnInit {
   textInput = '';
 
   @Output() onChanged = new EventEmitter();
+  @Output() clickFromDate = new EventEmitter<boolean>();
 
-  onSubmit(form) {
+  clickDate(isTrue: any) {
+    this.clickFromDate.emit(isTrue);
+  }
+
+  onSubmit(form: any) {
     this.onChanged.emit(form);
     this.onChanged.emit(this.textInput);
   }
-
-
 
   ngOnInit(): void {
   }

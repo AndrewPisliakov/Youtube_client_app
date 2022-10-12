@@ -26,7 +26,8 @@ import { FilterPanelComponent } from './filter-panel/filter-panel.component';
 import { MainComponent } from './main/main.component';
 import { CardComponent } from './main/card/card.component';
 import { FormsModule } from '@angular/forms';
-import { HighlightDirective } from './directive/highlight.directive';
+import { myEventDirective } from './directive/highlight.directive';
+import { SortByDataPipe } from './pipe/sort-by-data.pipe';
 
 
 @NgModule({
@@ -36,7 +37,8 @@ import { HighlightDirective } from './directive/highlight.directive';
     FilterPanelComponent,
     MainComponent,
     CardComponent,
-    HighlightDirective,
+    myEventDirective,
+    SortByDataPipe,
   ],
   imports: [
     BrowserModule,
