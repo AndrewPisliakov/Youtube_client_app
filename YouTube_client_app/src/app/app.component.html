@@ -1,7 +1,12 @@
-<app-header (onChanged)="eventFormInput($event)" (clickFromDate)="clickSortDate($event)" ></app-header>
-<app-filter-panel *ngIf="!showSorting"></app-filter-panel>
+<app-header (onChanged)="eventFormInput($event)" 
+            (clickFromDate)="clickButtonFilter($event)"      
+></app-header>
+<app-filter-panel 
+    *ngIf="!showSorting"
+    (onClickFromFilterPanel)="onClickFilter($event)"
+    ></app-filter-panel>
 
 <app-main>
-    <app-card class="col" *ngFor="let item of cards" [card]="item"></app-card>
+    <app-card class="col" *ngFor="let item of cards | sortByData:searchPanelInput" [card]="item"></app-card>
 </app-main>
 

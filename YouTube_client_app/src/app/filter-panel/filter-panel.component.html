@@ -3,13 +3,22 @@
         <span>Sorting by:</span>
         <ul class="nav">
             <li class="nav-item">
-                <a class="nav-link active border-bottom" aria-current="page" href="#">date</a>
+                <a (click)="onClick('date')"
+                [class.active]="classAcive === 'date' "
+                [class.border-bottom]="classAcive === 'date' "
+                    class="nav-link" aria-current="page" href="#">date</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">count of views</a>
+                <a (click)="onClick('views')" 
+                    [class.active]="classAcive === 'views' "
+                    [class.border-bottom]="classAcive === 'views' "
+                    class="nav-link" href="#">count of views</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="#">by word or sentance</a>
+                <a (click)="onClick('words')" 
+                [class.active]="classAcive === 'words' "
+                [class.border-bottom]="classAcive === 'words' "
+                    class="nav-link" href="#">by word or sentance</a>
             </li>
         </ul>
         <div class="form-outline">

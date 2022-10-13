@@ -9,6 +9,15 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
 export class FilterPanelComponent implements OnInit {
 
+@Output() onClickFromFilterPanel = new EventEmitter<string>();
+
+  classAcive = '';
+
+  onClick(data: string) {
+    this.classAcive = data;
+    this.onClickFromFilterPanel.emit(data);
+  }
+
   ngOnInit(): void {
   }
 

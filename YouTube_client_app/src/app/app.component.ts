@@ -3,7 +3,6 @@ import { Component, OnInit } from '@angular/core';
 import { data, SortOptions } from './models/models.component';
 import { IItem } from './models/models.component';
 
-
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -21,28 +20,20 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  clickSortDate(event: boolean) {
-    if (this.cards.length > 0) {
-      this.cards.sort((a: any, b: any) => {
-        const start = Date.parse(a.snippet.publishedAt);
-        const finish = Date.parse(b.snippet.publishedAt);
-        return start - finish;
-      });
-    }
-  
+  onClickFilter(data: string) {
+    this.searchPanelInput = data;
+  }
+
+  clickButtonFilter(event: boolean) {
     this.showSorting = !this.showSorting;
     console.log(event);
 
     this.sortBy = SortOptions.Date;
   }
 
-  eventFormInput(texInputfromHeader) {
+  eventFormInput(texInputfromHeader: any) {
     this.searchPanelInput = texInputfromHeader;
     this.cards = data.items;
+    console.log(this.cards);
   }
 }
-
-
-console.log(new AppComponent().cards);
-/* new AppComponent().clickSortDate(); */
-console.log(new AppComponent().cards);

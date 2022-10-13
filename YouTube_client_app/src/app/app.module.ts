@@ -29,7 +29,6 @@ import { FormsModule } from '@angular/forms';
 import { myEventDirective } from './directive/highlight.directive';
 import { SortByDataPipe } from './pipe/sort-by-data.pipe';
 
-
 @NgModule({
   declarations: [
     AppComponent,
