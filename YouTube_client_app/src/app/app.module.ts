@@ -28,6 +28,7 @@ import { CardComponent } from './main/card/card.component';
 import { FormsModule } from '@angular/forms';
 import { myEventDirective } from './directive/highlight.directive';
 import { SortByDataPipe } from './pipe/sort-by-data.pipe';
+import { FilterBySymbolPipe } from './pipe/filter-by-symbol.pipe';
 
 @NgModule({
   declarations: [
@@ -38,6 +39,7 @@ import { SortByDataPipe } from './pipe/sort-by-data.pipe';
     CardComponent,
     myEventDirective,
     SortByDataPipe,
+    FilterBySymbolPipe,
   ],
   imports: [
     BrowserModule,

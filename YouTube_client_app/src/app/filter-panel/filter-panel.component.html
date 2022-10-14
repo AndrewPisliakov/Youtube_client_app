@@ -22,7 +22,9 @@
             </li>
         </ul>
         <div class="form-outline">
-            <input type="text" id="typeText" class="form-control bg-white"/>
+            <input [(ngModel)]="inputValue"
+                    (ngModelChange)="onTitleChange($event)"
+                    type="text" id="typeText" class="form-control bg-white"/>
         </div>
     </div>
 </div>
