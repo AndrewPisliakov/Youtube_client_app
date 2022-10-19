@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
-import { data, SortOptions } from './models/models.component';
-import { IItem } from './models/models.component';
+import { data, SortOptions } from './youtube/models/models.component';
+import { IItem } from './youtube/models/models.component';
 
 @Component({
   selector: 'app-root',

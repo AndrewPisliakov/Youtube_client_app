@@ -19,16 +19,15 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './header/header.component';
-import { FilterPanelComponent } from './filter-panel/filter-panel.component';
-import { MainComponent } from './main/main.component';
-import { CardComponent } from './main/card/card.component';
+import { HeaderComponent } from './core/components/header/header.component';
+import { FilterPanelComponent } from './youtube/components/filter-panel/filter-panel.component';
+import { MainComponent } from './youtube/components/main/main.component';
+import { CardComponent } from './youtube/components/main/card/card.component';
 import { FormsModule } from '@angular/forms';
-import { myEventDirective } from './directive/highlight.directive';
-import { SortByDataPipe } from './pipe/sort-by-data.pipe';
-import { FilterBySymbolPipe } from './pipe/filter-by-symbol.pipe';
+
+import { SortByDataPipe } from './youtube/pipes/sort-by-data.pipe';
+import { FilterBySymbolPipe } from './youtube/pipes/filter-by-symbol.pipe';
 
 @NgModule({
   declarations: [
@@ -37,7 +36,6 @@ import { FilterBySymbolPipe } from './pipe/filter-by-symbol.pipe';
     FilterPanelComponent,
     MainComponent,
     CardComponent,
-    myEventDirective,
     SortByDataPipe,
     FilterBySymbolPipe,
   ],

@@ -1,6 +1,6 @@
 import { Component, Input, OnInit } from '@angular/core';
 
-import { IItem } from 'src/app/models/models.component';
+import { IItem } from 'src/app/youtube/models/models.component';
 
 @Component({
   selector: 'app-card',
