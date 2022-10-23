@@ -1,6 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-
-import { IItem } from 'src/app/youtube/models/models.component';
+import { ActivatedRoute } from '@angular/router';
+import { IItem } from 'src/app/shared/models/models.component';
+import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 
 @Component({
   selector: 'app-card',
@@ -8,10 +9,20 @@ import { IItem } from 'src/app/youtube/models/models.component';
   styleUrls: ['./card.component.scss']
 })
 
-export class CardComponent {
+export class CardComponent implements OnInit {
 
   @Input() card: IItem;
- 
+  public cardId: string = '';
+  
+  constructor(
+    public activateRoute: ActivatedRoute) {
+  }
+
+  ngOnInit(): void {
+    
+    //this.cardId = this.card.id;
+     
+  }
 }
 
 

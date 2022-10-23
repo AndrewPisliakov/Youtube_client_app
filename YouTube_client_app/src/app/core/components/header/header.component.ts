@@ -1,5 +1,5 @@
+import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { NgForm } from '@angular/forms';
 
 @Component({
   selector: 'app-header',
@@ -13,6 +13,8 @@ export class HeaderComponent implements OnInit {
   @Output() onChanged = new EventEmitter();
   @Output() clickFromDate = new EventEmitter<boolean>();
 
+  constructor( private router: Router) {}
+
   clickDate(isTrue: any) {
     this.clickFromDate.emit(isTrue);
   }
@@ -20,6 +22,14 @@ export class HeaderComponent implements OnInit {
   onSubmit(form: any) {
     this.onChanged.emit(form);
     this.onChanged.emit(this.textInput);
+  }
+
+  toLogin() {
+    this.router.navigate(['login']);
+  }
+
+  returnToMainPage(){
+    this.router.navigate(['']);
   }
 
   ngOnInit(): void {

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-
-import { data, SortOptions } from './youtube/models/models.component';
-import { IItem } from './youtube/models/models.component';
+import { IItem, SortOptions } from './shared/models/models.component';
+import { YoutubeService } from './youtube/services/youtube.service';
 
 @Component({
   selector: 'app-root',
@@ -10,31 +9,11 @@ import { IItem } from './youtube/models/models.component';
 })
 
 export class AppComponent implements OnInit {
-  cards: IItem[] = [];
-  showSorting: boolean = true;
-  searchPanelInput: string = '';
-  searchPanelInput2: string = ''
-  
-  sortBy: SortOptions = SortOptions.Date;
+
+
+  constructor() { }
 
   ngOnInit(): void {
   }
-
-  inputValueTwo(value: string){
-    this.searchPanelInput2 = value;
-  }
-
-  onClickFilter(data: string) {
-    this.searchPanelInput = data;
-  }
-
-  clickButtonFilter(event: boolean) {
-    this.showSorting = !this.showSorting;
-    this.sortBy = SortOptions.Date;
-  }
-
-  eventFormInput(texInputfromHeader: any) {
-    this.searchPanelInput = texInputfromHeader;
-    this.cards = data.items;
-  }
+  
 }

@@ -1,7 +1,7 @@
 <div class="card">
     <div class="bg-image hover-overlay ripple" data-mdb-ripple-color="light">
         <img [src]=card.snippet.thumbnails.medium.url class="img-fluid" />
-        <a href="#!">
+        <a [routerLink]="['detailed', card.id]">
             <div class="mask" style="background-color: rgba(251, 251, 251, 0.15);"></div>
         </a>
     </div>
@@ -32,12 +32,11 @@
                 <span class="group-buttons-counter">{{card.statistics.commentCount}}</span>
             </div>
         </div>
-        <h5 class="card-title mb-6">{{card.snippet.title}} #{{card.snippet.categoryId}}</h5>
-        <a href="#!" class="btn btn-primary">more...</a>
+        <h5 class="card-title mb-6">{{card.snippet.title}} {{card.snippet.categoryId}}</h5>
+        <a [routerLink]="['detailed', card.id]" class="btn btn-primary">more...</a>
     </div>
     <div class="progress">
         <div class="progress-bar bg-danger" role="progressbar" style="width: 100%;" aria-valuenow="100"
             aria-valuemin="0" aria-valuemax="100"></div>
     </div>
 </div>
-

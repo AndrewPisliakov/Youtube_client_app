@@ -19,30 +19,30 @@ import { MdbScrollspyModule } from 'mdb-angular-ui-kit/scrollspy';
 import { MdbTabsModule } from 'mdb-angular-ui-kit/tabs';
 import { MdbTooltipModule } from 'mdb-angular-ui-kit/tooltip';
 import { MdbValidationModule } from 'mdb-angular-ui-kit/validation';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './core/components/header/header.component';
-import { FilterPanelComponent } from './youtube/components/filter-panel/filter-panel.component';
-import { MainComponent } from './youtube/components/main/main.component';
-import { CardComponent } from './youtube/components/main/card/card.component';
-import { FormsModule } from '@angular/forms';
 
-import { SortByDataPipe } from './youtube/pipes/sort-by-data.pipe';
-import { FilterBySymbolPipe } from './youtube/pipes/filter-by-symbol.pipe';
+
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { FormsModule } from '@angular/forms';
+import { YoutubeModule } from './youtube/youtube.module'; 
+import { CoreModuleModule } from './core/core-module.module';
+import { AuthModule } from './auth/auth.module';
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
-    FilterPanelComponent,
-    MainComponent,
-    CardComponent,
-    SortByDataPipe,
-    FilterBySymbolPipe,
   ],
   imports: [
+    YoutubeModule,
+    CoreModuleModule,
+    AuthModule,
+    AppRoutingModule,
+
+    FormsModule,
     BrowserModule,
     FormsModule,
     BrowserAnimationsModule,
+
     MdbAccordionModule,
     MdbCarouselModule,
     MdbCheckboxModule,
@@ -58,6 +58,7 @@ import { FilterBySymbolPipe } from './youtube/pipes/filter-by-symbol.pipe';
     MdbTabsModule,
     MdbTooltipModule,
     MdbValidationModule,
+    AppRoutingModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

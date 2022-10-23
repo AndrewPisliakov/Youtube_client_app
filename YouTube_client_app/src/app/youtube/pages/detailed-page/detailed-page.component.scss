@@ -1,0 +1,41 @@
+.wiewBox img {
+    max-width: 100%;
+}
+
+.header {
+    color: #000000;
+    font-weight: bold;
+}
+
+.headerDate {
+    display: flex;
+    align-items: flex-end;
+    font-size: 0.7rem;
+}
+
+.titleTextDescription {
+    font-weight:500;
+}
+
+
+.group-buttons {
+    position: absolute;
+    bottom: 0px;
+    padding-bottom: 0.7rem;
+}
+
+.textDescription {
+    width: 400px;
+    height: 250px;
+    overflow: hidden;
+}
+
+.button_back {
+    position: absolute;
+    top: 0;
+    left: -33px;
+}
+
+.button_back:hover {
+    cursor: pointer;
+}
