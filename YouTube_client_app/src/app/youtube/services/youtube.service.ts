@@ -760,7 +760,19 @@ export class YoutubeService {
     ]
   };
 
-  getId(id: string):IItem {
-    return this.data.items.find(elem => elem.id === id);
+  localData: IItem[];
+
+  constructor() { }
+
+  createLocalData() {return localStorage.setItem('localData', JSON.stringify(this.data.items));}
+  getLocalData() { if(this.localData) { return this.localData = JSON.parse(localStorage.getItem('localData'));}};
+  setLocalData(data: any) { localStorage.setItem('localData',  JSON.stringify(data));}
+  removeLocalData() { if(this.localData) { localStorage.clear();}};
+
+  getCards(): IItem[] { 
+    this.createLocalData();
+    return this.data.items;
   }
+  getId(id: string): IItem { return this.data.items.find(elem => elem.id === id);}
 }
+

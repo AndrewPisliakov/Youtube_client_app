@@ -21,13 +21,8 @@ export class DetailedPageComponent implements OnInit {
     private router: Router) {
 
     this.cardId = activateRoute.snapshot.params.id;
-    console.log(this.cardId);
-    
     this.currentCard = youtubeService.getId(this.cardId);
-    console.log(this.currentCard);
    }
-
-
 
   public backHome(): void {
     this.router.navigate(['']);

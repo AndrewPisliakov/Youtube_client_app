@@ -15,9 +15,14 @@ export class YoutubeComponent implements OnInit {
   searchPanelInput2: string = ''
   sortBy: SortOptions = SortOptions.Date;
 
-  constructor(private youtubeService: YoutubeService) {  }
+  constructor(private youtubeService: YoutubeService) {
+    this.cards = youtubeService.getCards();
+    /* if (this.youtubeService.localData) {
+      this.cards = this.youtubeService.getCards();
+    } */
+  }
 
-  inputValueTwo(value: string){
+  inputValueTwo(value: string) {
     this.searchPanelInput2 = value;
   }
 
@@ -32,7 +37,7 @@ export class YoutubeComponent implements OnInit {
 
   eventFormInput(texInputfromHeader: any) {
     this.searchPanelInput = texInputfromHeader;
-    this.cards = this.youtubeService.data.items;
+    this.cards = this.youtubeService.getCards();
   }
 
   ngOnInit(): void {
