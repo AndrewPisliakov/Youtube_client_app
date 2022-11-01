@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { DataService } from 'src/app/core/services/data.service';
 import { IItem, SortOptions } from 'src/app/shared/models/models.component';
 import { YoutubeService } from '../services/youtube.service';
 
@@ -9,17 +10,24 @@ import { YoutubeService } from '../services/youtube.service';
 })
 export class YoutubeComponent implements OnInit {
 
+  users: IItem[];
+
   cards: IItem[] = [];
   showSorting: boolean = true;
   searchPanelInput: string = '';
-  searchPanelInput2: string = ''
+  searchPanelInput2: string = '';
   sortBy: SortOptions = SortOptions.Date;
 
-  constructor(private youtubeService: YoutubeService) {
+  constructor(private youtubeService: YoutubeService, private _dataservice: DataService) {
     this.cards = youtubeService.getCards();
-    /* if (this.youtubeService.localData) {
-      this.cards = this.youtubeService.getCards();
-    } */
+  }
+
+  ngOnInit(): void {
+/*     this.users = this._dataservice.getData().subscribe(users => {
+      console.log(users.items);
+      return this.users = users.items
+    }); */
+
   }
 
   inputValueTwo(value: string) {
@@ -40,7 +48,5 @@ export class YoutubeComponent implements OnInit {
     this.cards = this.youtubeService.getCards();
   }
 
-  ngOnInit(): void {
-  }
 
 }

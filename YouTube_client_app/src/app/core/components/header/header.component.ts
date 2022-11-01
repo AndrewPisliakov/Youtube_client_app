@@ -1,3 +1,4 @@
+import { LoginService } from './../../../auth/services/login.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 
@@ -8,12 +9,23 @@ import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 })
 export class HeaderComponent implements OnInit {
 
-  textInput = '';
+  public yourName = 'Your Name'
+  public textInput = '';
+  public isFormSubmit: boolean;
+  _loginService;
 
   @Output() onChanged = new EventEmitter();
   @Output() clickFromDate = new EventEmitter<boolean>();
 
-  constructor( private router: Router) {}
+  constructor(private router: Router, private loginService: LoginService) {
+    this._loginService = loginService;
+    this._loginService = loginService;
+
+    if (this._loginService.getUserData()) {
+      this.yourName = this._loginService.getUserData().loginName;
+    }
+
+  }
 
   clickDate(isTrue: any) {
     this.clickFromDate.emit(isTrue);
@@ -24,11 +36,14 @@ export class HeaderComponent implements OnInit {
     this.onChanged.emit(this.textInput);
   }
 
-  toLogin() {
-    this.router.navigate(['login']);
+  toLoginNavigate() {
+      if (this._loginService.getUserData()) return; 
+      else {
+        this.router.navigate(['login']);
+      };
   }
 
-  returnToMainPage(){
+  returnToMainPage() {
     this.router.navigate(['']);
   }
 

@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { LoginPageComponent } from './pages/login-page/login-page.component';
 import { LoginService } from './services/login.service';
 import { CoreModuleModule } from '../core/core-module.module';
+import { FormsModule } from '@angular/forms';
 
 
 
@@ -13,6 +14,7 @@ import { CoreModuleModule } from '../core/core-module.module';
   imports: [
     CommonModule,
     CoreModuleModule,
+    FormsModule,
   ],
   exports: [LoginPageComponent],
   providers: [LoginService]

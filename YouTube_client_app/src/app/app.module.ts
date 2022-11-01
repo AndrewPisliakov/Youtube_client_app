@@ -1,6 +1,5 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
-
 import { AppComponent } from './app.component';
 
 // MDB Modules
@@ -27,6 +26,7 @@ import { YoutubeModule } from './youtube/youtube.module';
 import { CoreModuleModule } from './core/core-module.module';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
+
 
 @NgModule({
   declarations: [

@@ -9,12 +9,12 @@ export class FilterBySymbolPipe implements PipeTransform {
   constructor(private youtubeServise: YoutubeService) {}
 
   transform(cards: IItem[], param: string, valueInput: string): any {
-    if ( param === "views" || param === "date") {
+    /* if ( param === "views" || param === "date") {
       return this.youtubeServise.getCards();
-    }
+    } */
 
     return cards.filter((card) => {
-      return card.snippet.localized.title.indexOf(valueInput) > -1;
+      return card.snippet.title.indexOf(valueInput) > -1;
     });
   }
 }
