@@ -1,6 +1,7 @@
 import { LoginService } from './../../../auth/services/login.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
+import { DataService } from '../../services/data.service';
 
 @Component({
   selector: 'app-header',
@@ -17,14 +18,13 @@ export class HeaderComponent implements OnInit {
   @Output() onChanged = new EventEmitter();
   @Output() clickFromDate = new EventEmitter<boolean>();
 
-  constructor(private router: Router, private loginService: LoginService) {
-    this._loginService = loginService;
+  constructor(private router: Router, private loginService: LoginService,
+    private dataService: DataService) {
     this._loginService = loginService;
 
     if (this._loginService.getUserData()) {
       this.yourName = this._loginService.getUserData().loginName;
     }
-
   }
 
   clickDate(isTrue: any) {
@@ -37,10 +37,10 @@ export class HeaderComponent implements OnInit {
   }
 
   toLoginNavigate() {
-      if (this._loginService.getUserData()) return; 
-      else {
-        this.router.navigate(['login']);
-      };
+    if (this._loginService.getUserData()) return;
+    else {
+      this.router.navigate(['login']);
+    };
   }
 
   returnToMainPage() {
@@ -48,6 +48,9 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.dataService.getData().subscribe((data) => {
+      console.log(data);
+    });
   }
 
 }

@@ -1,0 +1,49 @@
+<app-header></app-header>
+<section class="loginPage container mt-5">
+    <div class="loginPageWrappe w-100 p-4 d-flex justify-content-center pb-4">
+        <form 
+        [formGroup]="myForm" 
+        (ngSubmit)="onSubmit()"   
+        style="width: 22rem;">
+            <!-- Title input -->
+            <div class="form-outline mb-4">
+                <input class="form-control bgDarkgray" 
+                type="text" 
+                formControlName="title"
+                name="title" id="titleId" />
+                <label class="form-label" for="titleId">Title</label>
+            </div>
+
+            <!-- Discription input -->
+            <div class="form-outline mb-4">
+                <input class="form-control bgDarkgray" 
+                formControlName="discription"
+                type="password" 
+                name="inputDiscription" id="discriptionId" />
+                <label class="form-label" for="discriptionId">Discription</label>
+            </div>
+
+            <!-- Img input -->
+            <div class="form-outline mb-4">
+                <input class="form-control bgDarkgray" 
+                formControlName="img"
+                type="text" name="inputImg" 
+                id="imgId" />
+                <label class="form-label" for="imgId">Img</label>
+            </div>
+
+            <!-- Link video input -->
+            <div class="form-outline mb-4">
+                <input class="form-control bgDarkgray" 
+                type="text" 
+                formControlName="link"
+                name="inputLinkVideo" 
+                id="linkVideoId" />
+                <label class="form-label" for="linkVideoId">Link video</label>
+            </div>
+
+            <!-- Submit button -->
+            <button type="submit" class="btn btn-primary btn-block">Create card</button>
+        </form>
+    </div>
+</section>

@@ -11,9 +11,6 @@ import { NgForm } from '@angular/forms';
   styleUrls: ['./login-page.component.scss']
 })
 export class LoginPageComponent implements OnInit {
-
-
-
   public valueFromInputLogin = '';
   public valueFromInputPassword = '';
   private _loginServise;

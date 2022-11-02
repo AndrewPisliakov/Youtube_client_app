@@ -1,6 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import {RouterModule} from '@angular/router';
 
 import { FilterBySymbolPipe } from './pipes/filter-by-symbol.pipe';
@@ -13,6 +13,7 @@ import { DetailedPageComponent } from './pages/detailed-page/detailed-page.compo
 import { YoutubeComponent } from './components/youtube.component';
 import { CoreModuleModule } from '../core/core-module.module';
 import { NonFoundComponent } from './pages/non-found/non-found.component';
+import { AdminPageComponent } from './pages/admin-page/admin-page.component';
 
 @NgModule({
   declarations: [
@@ -27,12 +28,14 @@ import { NonFoundComponent } from './pages/non-found/non-found.component';
     FilterBySymbolPipe,
     DetailedPageComponent,
     YoutubeComponent,
+    AdminPageComponent,
   ],
   imports: [
     CommonModule,
     FormsModule,
     CoreModuleModule,
-    RouterModule
+    RouterModule,
+    ReactiveFormsModule,
   ],
   providers: [YoutubeService],
   exports: [

@@ -16,7 +16,7 @@ export class DataService {
 
   getData(page: number = 1) {
     const params = new HttpParams()
-      .set('key', 'AIzaSyDzA7oG3SMkOu5SwT5R2UGTX9H8FDfDHBM')
+      .set('key', 'AIzaSyAXGFtJC_fAxrc1hCNebsKJ_u7wJobbFG0')
       .set('type', 'video')
       .set('part', 'snippet')
       .set('maxResults', (page * this.LIMIT).toString())
