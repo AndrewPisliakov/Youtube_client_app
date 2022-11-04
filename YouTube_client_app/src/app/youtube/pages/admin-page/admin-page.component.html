@@ -12,6 +12,12 @@
                 formControlName="title"
                 name="title" id="titleId" />
                 <label class="form-label" for="titleId">Title</label>
+                
+                <!--  -->
+                <div class="alert alert-danger"
+                *ngIf="myForm.controls['title'].invalid && myForm.controls['title'].touched">
+                Минимальная длинна 3 символа 
+            </div>
             </div>
 
             <!-- Discription input -->
