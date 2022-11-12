@@ -26,6 +26,12 @@ import { YoutubeModule } from './youtube/youtube.module';
 import { CoreModuleModule } from './core/core-module.module';
 import { AuthModule } from './auth/auth.module';
 import { AppRoutingModule } from './app-routing.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './redux/reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { AppEffects } from './redux/effects/app.effects';
+import {StoreDevtoolsModule} from '@ngrx/store-devtools';
+import {environment} from '../environments/environment';
 
 
 @NgModule({
@@ -59,6 +65,11 @@ import { AppRoutingModule } from './app-routing.module';
     MdbTooltipModule,
     MdbValidationModule,
     AppRoutingModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
+    StoreDevtoolsModule.instrument({maxAge: 25, logOnly: environment.production}),
+    EffectsModule.forRoot([AppEffects])
   ],
   providers: [],
   bootstrap: [AppComponent]

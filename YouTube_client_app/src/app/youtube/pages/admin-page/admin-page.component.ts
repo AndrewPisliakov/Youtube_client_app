@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Store } from '@ngrx/store';
+import { addAdminObject } from 'src/app/redux/reducers/youtube.actions';
 
 @Component({
   selector: 'app-admin-page',
@@ -10,8 +12,7 @@ export class AdminPageComponent implements OnInit {
 
   myForm: FormGroup;
 
-  constructor() {
-  }
+  constructor(private store: Store) {}
 
   ngOnInit(): void {
     this.myForm = new FormGroup({
@@ -31,6 +32,9 @@ export class AdminPageComponent implements OnInit {
   onSubmit() {
     console.log('Форма ушла на сервер');
     console.log(this.myForm);
+    console.log(this.myForm.value);
+
+    this.store.dispatch(addAdminObject(this.myForm.value));
   }
 }
 
