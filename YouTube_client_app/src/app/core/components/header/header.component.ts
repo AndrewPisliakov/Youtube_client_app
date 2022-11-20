@@ -1,7 +1,9 @@
+import { Store } from '@ngrx/store';
 import { LoginService } from './../../../auth/services/login.service';
 import { Router } from '@angular/router';
 import { Component, OnInit, Output, EventEmitter } from '@angular/core';
 import { DataService } from '../../services/data.service';
+import { loadCardsReducer } from 'src/app/redux/actions/youtube.actions';
 
 @Component({
   selector: 'app-header',
@@ -19,7 +21,8 @@ export class HeaderComponent implements OnInit {
   @Output() clickFromDate = new EventEmitter<boolean>();
 
   constructor(private router: Router, private loginService: LoginService,
-    private dataService: DataService) {
+    private dataService: DataService,
+    private store: Store) {
     this._loginService = loginService;
 
     if (this._loginService.getUserData()) {
@@ -50,6 +53,8 @@ export class HeaderComponent implements OnInit {
   ngOnInit(): void {
     this.dataService.getData().subscribe((data) => {
       console.log(data);
+      this.store.dispatch(loadCardsReducer());
+      // this.store.dispatch(addAdminObject(this.myForm.value));
     });
   }
 

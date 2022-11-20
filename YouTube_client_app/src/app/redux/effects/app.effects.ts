@@ -1,7 +1,19 @@
 import { Injectable } from '@angular/core';
-import { Actions, createEffect } from '@ngrx/effects';
+import { Actions, createEffect, ofType } from '@ngrx/effects';
+import { map, merge, mergeMap } from 'rxjs';
+import { DataService } from 'src/app/core/services/data.service';
 
 @Injectable()
 export class AppEffects {
-  constructor(private actions$: Actions) {}
+
+  loadCardsEffect$ = createEffect(() => this.actions$.pipe(
+    ofType('[Header Component] loadCardsReducer'),
+    mergeMap(() => this.dataService.getData()
+      .pipe(
+        map(cards => ({ type: '[Header Component] CARDS_LOAD_SUCCESS', payload: cards }))
+      )
+    )
+  ));
+
+  constructor(private actions$: Actions, private dataService: DataService) { }
 }
