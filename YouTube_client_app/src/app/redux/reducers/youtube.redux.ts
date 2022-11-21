@@ -1,4 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
+import { IData, IItem } from "src/app/shared/models/models.component";
 import { addAdminObject, CARDS_LOAD_SUCCESS } from "../actions/youtube.actions";
 
 export interface ResponseCard {
@@ -31,8 +32,9 @@ export interface ResponseCard {
                 url: string,
                 width: number
             },
-            title: string
-        }
+
+        },
+        title: string
     }
 }
 
@@ -46,12 +48,13 @@ export interface ResponseCards {
         totalResults: number
     },
     regionCode: string
-} 
+}
+
 
 //========================================
 export interface Card {
     adminCard: AdminCard | null,
-    youtubeCard: ResponseCard | null;
+    youtubeCard: IItem | null;
 }
 
 export interface AdminCard {
@@ -61,11 +64,34 @@ export interface AdminCard {
     link: string
 }
 
+export interface CardAdminState {
+    adminCard: AdminCard | null,
+    youtubeCard: IItem | null;
+}
+
 export interface AdminState {
-    myCards: Card[],
+    myCards: CardAdminState[],  // =========================== to do 
 }
 
 //==========================================
+
+export interface CardAdaptive {
+    id: string,
+    title: string,
+    viewCount: string,
+    likeCount: string,
+    dislikeCount: string,
+    commentCount: string,
+    publishedAt: string
+    favoriteCount: string,
+    url: string,
+    description?: string
+};
+//==========================================
+
+export interface GlobalState {
+    admin: AdminState
+}
 
 export const initialState: AdminState = {
     myCards: []
@@ -80,9 +106,9 @@ export const adminReducer = createReducer(
                 link: action.link,
                 title: action.title,
                 discription: action.discription,
-                img: action.img
+                img: action.img,
             },
-             youtubeCard: null
+            youtubeCard: null
         }]
     })
     ),
@@ -102,18 +128,17 @@ export const adminReducer = createReducer(
 ); */
 
     on(CARDS_LOAD_SUCCESS, (state, response) => {
-        const responceCards = response.payload.items
+        //console.log(response);
+        const responceCards = response.payload.items;
         const responceCardsForState = responceCards.map(elem => {
-            
             return {
                 adminCard: null,
-                 youtubeCard: elem
+                youtubeCard: elem
             }
         });
-
         return {
             ...state,
-            myCards: [...state.myCards, ...responceCardsForState]
+            myCards: [...responceCardsForState]
         }
     }),
 );

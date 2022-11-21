@@ -1,17 +1,17 @@
 import { createAction, props } from "@ngrx/store";
-import { ResponseCards } from "../reducers/youtube.redux";
+import { IData, IItem } from "src/app/shared/models/models.component";
 
 
 export const addAdminObject = createAction('[COUNTER] addAdminObject', props<{
     discription: string,
     img: string,
     link: string,
-    title: string
+    title: string,
 }>()
 );
 
 export const loadCardsReducer = createAction('[Header Component] loadCardsReducer');
 
 export const CARDS_LOAD_SUCCESS = createAction('[Header Component] CARDS_LOAD_SUCCESS', props<{
-    payload: ResponseCards
+    payload: IData
 }>());

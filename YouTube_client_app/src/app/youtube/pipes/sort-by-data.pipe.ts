@@ -1,3 +1,4 @@
+import { CardAdaptive } from './../../redux/reducers/youtube.redux';
 import { Pipe, PipeTransform } from '@angular/core';
 import { IItem } from 'src/app/shared/models/models.component';
 
@@ -6,20 +7,26 @@ import { IItem } from 'src/app/shared/models/models.component';
 })
 export class SortByDataPipe implements PipeTransform {
 
-  transform(cards: IItem[], param: string): any {
+  transform(cards: CardAdaptive[], param: string): any {
     if (!cards || !param) {
       return cards;
     };
 
     if (param === 'date') { 
-    return cards.sort((a: any, b: any) => {
-      return Date.parse(a.snippet.publishedAt) - Date.parse(b.snippet.publishedAt);
+    return cards.sort((a: CardAdaptive, b: CardAdaptive) => {
+      return Date.parse(a.publishedAt) - Date.parse(b.publishedAt);  
     })
   }
 
     if (param === "views") {
-      return cards.sort( (a: any, b: any) => {
-        return b.statistics.viewCount - a.statistics.viewCount 
+      return cards.sort( (a: CardAdaptive, b: CardAdaptive) => {
+        return Number(b.viewCount) - Number(a.viewCount) 
+      });
+    }
+debugger;
+    if (param === "words") {
+      return cards.sort( (a: CardAdaptive, b: CardAdaptive) => {
+        return b.title > a.title ? -1 : 1
       });
     }
 
@@ -27,6 +34,6 @@ export class SortByDataPipe implements PipeTransform {
 
 }
 
-/*     Date = 'date',
+/*  Date = 'date',
     Views = 'views',
     Words = 'words' */

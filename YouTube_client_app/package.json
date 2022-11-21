@@ -10,6 +10,7 @@
   },
   "private": true,
   "dependencies": {
+    "typescript.tsdk": "node_modules/typescript/lib",
     "@angular/animations": "~13.2.4",
     "@angular/cdk": "^13.2.4",
     "@angular/common": "~13.2.4",

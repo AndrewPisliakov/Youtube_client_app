@@ -51,11 +51,10 @@ export class HeaderComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.dataService.getData().subscribe((data) => {
+/*     this.dataService.getData().subscribe((data) => {
       console.log(data);
-      this.store.dispatch(loadCardsReducer());
-      // this.store.dispatch(addAdminObject(this.myForm.value));
-    });
+    }); */
+    this.store.dispatch(loadCardsReducer());
   }
 
 }

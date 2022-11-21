@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IItem } from 'src/app/shared/models/models.component';
+import { CardAdaptive } from 'src/app/redux/reducers/youtube.redux';
 import { YoutubeService } from '../services/youtube.service';
 
 @Pipe({
@@ -8,13 +8,14 @@ import { YoutubeService } from '../services/youtube.service';
 export class FilterBySymbolPipe implements PipeTransform {
   constructor(private youtubeServise: YoutubeService) {}
 
-  transform(cards: IItem[], param: string, valueInput: string): any {
+  transform(cards: CardAdaptive[], param: string, valueInput: string) {
     /* if ( param === "views" || param === "date") {
       return this.youtubeServise.getCards();
     } */
+ 
+      return cards.filter((card) => {
+        return card.title.indexOf(valueInput) > -1;
+      });
 
-    return cards.filter((card) => {
-      return card.snippet.title.indexOf(valueInput) > -1;
-    });
   }
 }

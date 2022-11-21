@@ -1,7 +1,8 @@
+import { CardAdaptive } from 'src/app/redux/reducers/youtube.redux';
 import { Component, Input, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { IItem } from 'src/app/shared/models/models.component';
-import { YoutubeService } from 'src/app/youtube/services/youtube.service';
+import { Store } from '@ngrx/store';
+
 
 @Component({
   selector: 'app-card',
@@ -10,18 +11,20 @@ import { YoutubeService } from 'src/app/youtube/services/youtube.service';
 })
 
 export class CardComponent implements OnInit {
-
-  @Input() card: IItem;
+  @Input() card: CardAdaptive;
   public cardId: string = '';
+  public viewCount: 55555;
   
   constructor(
-    public activateRoute: ActivatedRoute) {
+    public activateRoute: ActivatedRoute, private store: Store) {
+   
   }
 
   ngOnInit(): void {
-    
-    //this.cardId = this.card.id;
-     
+  }
+
+
+  ngOnDestroy(): void {
   }
 }
 

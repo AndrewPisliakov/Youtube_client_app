@@ -8,6 +8,9 @@
     ></app-filter-panel>
 
 <app-main>
-    <app-card class="col" *ngFor="let item of cards | sortByData: searchPanelInput | filterBySymbol : searchPanelInput : searchPanelInput2" 
+    <app-card class="col" *ngFor="let item of cards$ | async | sortByData: searchPanelInput | filterBySymbol : searchPanelInput : searchPanelInput2" 
             [card]="item"></app-card>
 </app-main>
+
+
+<!--   -->

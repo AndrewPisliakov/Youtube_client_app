@@ -1,43 +1,42 @@
 <app-header></app-header>
-
-<div class="container mt-5" style="position: relative;">
+<div class="container mt-5" style="position: relative;" *ngIf="currentCard">
     <div class="row">
         <div class="col-8 wiewBox ps-0 pe-0">
-            <img [src]="currentCard.snippet.thumbnails.maxres.url">
+            <img [src]="currentCard.url" class="w-100">
         </div>
         <div class="col-4 pt-5 description" style="background-color: #E5E5E5; ">
             <div class="wrapperTitle">
                 <div class="row">
-                    <h5 class="col-7 header">{{currentCard.snippet.channelTitle}}</h5>
-                    <h5 class="col headerDate">{{currentCard.snippet.publishedAt | date:'fullDate'}}</h5>
+                    <h5 class="col-7 header">{{currentCard.title}}</h5>
+                    <h5 class="col headerDate">{{currentCard.publishedAt | date:'fullDate'}}</h5>
                 </div>
                 <div class="titleTextDescription mt-5">Description:</div>
-                <p class="textDescription">{{currentCard.snippet.description}}</p>
+                <p class="textDescription">{{currentCard.description}}</p>
 
                 <div class="group-buttons d-flex">
                     <div class="group-buttons-wrapper m-2">
                         <button type="button" class="btn btn-sm btn-floating">
                             <img src="./assets/icons/viewed.svg">
                         </button>
-                        <span class="group-buttons-counter">{{currentCard.statistics.viewCount}}</span>
+                        <span class="group-buttons-counter">{{currentCard.viewCount}}</span>
                     </div>
                     <div class="group-buttons-wrapper m-2">
                         <button type="button" class="btn btn-sm btn-floating" data-mdb-ripple-color="dark">
                             <img src="./assets/icons/liked.svg">
                         </button>
-                        <span class="group-buttons-counter">{{currentCard.statistics.likeCount}}</span>
+                        <span class="group-buttons-counter">{{currentCard.likeCount}}</span>
                     </div>
                     <div class="group-buttons-wrapper m-2">
                         <button type="button" class="btn btn-sm btn-floating">
                             <img src="./assets/icons/dislike.svg">
                         </button>
-                        <span class="group-buttons-counter">{{currentCard.statistics.dislikeCount}}</span>
+                        <span class="group-buttons-counter">{{currentCard.dislikeCount}}</span>
                     </div>
                     <div class="group-buttons-wrapper m-2">
                         <button type="button" class="btn btn-sm btn-floating">
                             <i class="fas fa-object-ungroup"></i>
                         </button>
-                        <span class="group-buttons-counter">{{currentCard.statistics.commentCount}}</span>
+                        <span class="group-buttons-counter">{{currentCard.commentCount}}</span>
                     </div>
                 </div>
             </div>

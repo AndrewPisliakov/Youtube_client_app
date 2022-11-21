@@ -8,7 +8,7 @@ export class AppEffects {
 
   loadCardsEffect$ = createEffect(() => this.actions$.pipe(
     ofType('[Header Component] loadCardsReducer'),
-    mergeMap(() => this.dataService.getData()
+    mergeMap(() => this.dataService.getDataWithStatistic()
       .pipe(
         map(cards => ({ type: '[Header Component] CARDS_LOAD_SUCCESS', payload: cards }))
       )
