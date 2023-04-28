@@ -1,2 +1,3 @@
-# first-quantum-mind-ANGULAR2022Q3
-Private repository for @first-quantum-mind
+Download folder Youtube_client_app
+use npm i
+use ng serve
