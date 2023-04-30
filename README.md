@@ -4,7 +4,6 @@ Deployed using GitHub Pages
 
 # Description 
 - In this project I use: 
-    - TypeScript
     - Components
     - Directives & Pipes
     - Modules & Services, Dependency injection
@@ -13,6 +12,12 @@ Deployed using GitHub Pages
     - HTTP
     - Forms
     - Redux & NgRx
+
+#### Functional requirements
+- By clicking on the **Settings button**, the **Filtering criteria block** should be toggled
+    - It should be possible to sort search results by date or count of views
+    - Sorting should work both in the direction of decreasing values and in the direction of increasing values
+    - Using a pipe, filter search results by value that a user types in the input
 
 ## Installation
 ```sh
